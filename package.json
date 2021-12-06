@@ -1,0 +1,9 @@
+{
+  "name": "html-to-pdf",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "html-pdf": "^3.0.1"
+  }
+}
