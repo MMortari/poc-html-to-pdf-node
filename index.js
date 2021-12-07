@@ -1,5 +1,5 @@
 const htmlPdf = require("html-pdf");
-const { readFileSync } = require("fs");
+const { readFileSync, writeFileSync } = require("fs");
 
 const type = "complex";
 
@@ -8,7 +8,7 @@ async function create() {
 
   const html = file.toString("utf-8");
 
-  createPDF(html);
+  await createPDF(html);
 
   console.log("PDF criado com sucesso");
 }
@@ -16,15 +16,13 @@ async function create() {
 create();
 
 async function createPDF(html) {
-  var options = { format: "Letter" };
+  const file = await new Promise((res, rej) => {
+    htmlPdf.create(html, { format: "A4" }).toBuffer(function (err, data) {
+      if (err) return rej(err);
 
-  return new Promise((res, rej) => {
-    htmlPdf
-      .create(html, options)
-      .toFile(`./pdf/${type}.pdf`, function (err, data) {
-        if (err) return rej(err);
-
-        res(data);
-      });
+      res(data);
+    });
   });
+
+  writeFileSync(`./pdf/${type}.pdf`, file);
 }

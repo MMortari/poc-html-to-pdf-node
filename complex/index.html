@@ -12,12 +12,6 @@
         padding: 0;
         box-sizing: border-box;
         font-family: Arial, serif;
-
-        display: -webkit-box;
-        display: -webkit-flex;
-        -webkit-flex-wrap: wrap;
-        display: flex;
-        flex-wrap: wrap;
       }
 
       @page {
@@ -49,6 +43,9 @@
         max-width: 379px;
         margin-bottom: 4px;
         border: solid 1px #999999;
+
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
         display: inline-flex;
       }
 
@@ -61,6 +58,9 @@
         max-width: 121px;
         margin-bottom: 4px;
         border: solid 1px #999999;
+
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
         display: inline-flex;
       }
 
@@ -74,40 +74,37 @@
         margin-right: 3px;
         margin-bottom: 4px;
         border: solid 1px #999999;
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
         display: inline-flex;
       }
 
       .s1 {
-        flex: 0 0 121px;
-        max-width: 121px;
+        width: 121px;
         border-left: solid 1px #999999;
         overflow: hidden;
       }
 
       .s2 {
-        flex: 0 0 86px;
-        max-width: 86px;
+        width: 86px;
         border-left: solid 1px #999999;
         overflow: hidden;
       }
 
       .s3 {
-        flex: 0 0 207px;
-        max-width: 207px;
+        width: 207px;
         border-left: solid 1px #999999;
         overflow: hidden;
       }
 
       .s4 {
-        flex: 0 0 38px;
-        max-width: 38px;
+        width: 38px;
         border-left: solid 1px #999999;
         overflow: hidden;
       }
 
       .s5 {
-        flex: 0 0 257px;
-        max-width: 257px;
+        width: 257px;
         border-left: solid 1px #999999;
         overflow: hidden;
       }
@@ -165,16 +162,25 @@
       }
 
       .acb-info {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
       }
 
       .acb-info div {
-        flex: 0 0 188px;
+        /* -webkit-box-flex: 0;
+        -ms-flex: 0 0 188px;
+        flex: 0 0 188px; */
+        /* width: 188px; */
+        width: 380px;
+
         letter-spacing: -0.22px;
       }
 
       .acb-info div:first-child {
-        margin-right: 8px;
+        /* margin-right: 8px; */
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 0 177px;
         flex: 0 0 0 177px;
       }
 
@@ -193,8 +199,12 @@
 
       .acb-header {
         margin-bottom: 10.4px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: flex-end;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
       }
 
       .n1 {
@@ -219,7 +229,7 @@
       }
 
       .n2 {
-        margin-left: auto;
+        /* margin-left: auto; */
       }
 
       .acb-number {
@@ -237,8 +247,16 @@
       }
 
       .ft {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 75%;
         flex: 0 0 75%;
-        flex-wrap: wrap;
+        /* -ms-flex-wrap: wrap;
+        flex-wrap: wrap; */
+
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
       }
 
       .ft div {
@@ -255,7 +273,15 @@
       }
 
       .sd {
-        flex: 0 0 25%;
+        /* -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%; */
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+
+        height: 194px;
         margin-left: 3px;
       }
 
@@ -313,6 +339,16 @@
 
       .acb-number {
         font-family: DIN Round Pro, serif;
+      }
+
+      .width-100 {
+        width: 100%;
+      }
+
+      .display-flex {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
       }
     </style>
   </head>
@@ -545,16 +581,16 @@
         </div>
       </div>
 
-      <div style="display: inline-flex">
+      <div class="display-flex">
         <div class="acb-info ft">
-          <div>
+          <div class="width-100">
             <p class="item-title">Instruções</p>
             <p class="item-value">
               Não receber pagamento em cheque <br />
               Não receber um valor diferente ao do documento
             </p>
           </div>
-          <div>
+          <div class="width-100">
             <p class="item-title">Pagador</p>
             <p class="item-value">
               Marcos Antonio de Almeida | CPF: 037.187.970-11 <br />
